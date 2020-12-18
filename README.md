@@ -1,6 +1,8 @@
-# IFC for Revit (revit-ifc)
+# SilentWave Fork of IFC for Revit (revit-ifc)
 
-This is the .NET code used by Revit 2019 and Revit LT 2019 to support IFC. The open source version can override the version that comes standard with shipped Revit. This contains the source code for Link IFC, IFC export and the IFC export UI.
+This is the .NET code used by Revit to support IFC. The open source version can override the version that comes standard with shipped Revit. This contains the source code for Link IFC, IFC export and the IFC export UI.
+
+This fork is going to differ from the original project and it is meant to be a research and development blueprint headed by a working group in BIM made of SilentWave developers in conjunction with professional Engineers in Construction from University of Padova as main contributors in developing code.
 
 ## To Build
 
