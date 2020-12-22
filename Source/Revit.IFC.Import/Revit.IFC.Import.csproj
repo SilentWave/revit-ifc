@@ -11,6 +11,9 @@
 		<GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
 	</PropertyGroup>
 	<ItemGroup>
+		<Compile Include="..\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
 		<Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=9ea901ae1ee158aa, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\ThirdParty\ICSharpCode\ICSharpCode.SharpZipLib.DLL</HintPath>

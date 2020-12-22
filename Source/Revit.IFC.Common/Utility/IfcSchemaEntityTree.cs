@@ -129,7 +129,7 @@ namespace Revit.IFC.Common.Utility
       /// </summary>
       /// <param name="ifcFileVersion">the IFC version</param>
       /// <returns>the entity Dictionary</returns>
-      public static IDictionary<string, IfcSchemaEntityNode> GetEntityDictFor(IFCVersion ifcFileVersion)
+      internal static IDictionary<string, IfcSchemaEntityNode> GetEntityDictFor(IFCVersion ifcFileVersion)
       {
          string schemaFile = SchemaFileName(ifcFileVersion);
          return GetEntityDictFor(schemaFile);

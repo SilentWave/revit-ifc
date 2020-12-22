@@ -13,11 +13,10 @@
 		<OutputType>WinExe</OutputType>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="RevitAPI, Version=21.1.0.0, Culture=neutral, processorArchitecture=AMD64">
-			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
-		</Reference>
 		<Reference Include="System.Windows.Forms" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="IFC2X2_ADD1.exp">
@@ -71,8 +70,5 @@
 		<PackageReference Include="Antlr4.Runtime">
 			<Version>4.6.6</Version>
 		</PackageReference>
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Properties\" />
 	</ItemGroup>
 </Project>

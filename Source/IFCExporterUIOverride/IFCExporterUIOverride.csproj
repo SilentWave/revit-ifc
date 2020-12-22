@@ -6,7 +6,15 @@
 		<AssemblyName>IFCExportUIOverride</AssemblyName>
 		<RootNamespace>BIM.IFC.Export.UI</RootNamespace>
 		<UseWPF>true</UseWPF>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
 	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Include="..\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Autodesk.UI.Windows, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
