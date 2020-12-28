@@ -1,0 +1,5 @@
+<Project>
+	<PropertyGroup>
+		<Revit2021InstallDir>$([MSBuild]::GetRegistryValueFromView(`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{7346B4A0-2100-0510-0000-705C0D862004}`,`InstallLocation`, null, RegistryView.Registry64).TrimEnd('\'))</Revit2021InstallDir>
+	</PropertyGroup>
+</Project>

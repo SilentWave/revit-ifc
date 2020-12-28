@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="$(SolutionDir)Revit2021.props" />
 	<PropertyGroup>
 		<Title>IFC Common for Revit</Title>
 		<TargetFramework>net48</TargetFramework>
@@ -16,11 +17,11 @@
 	<ItemGroup>
 		<Reference Include="RevitAPI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\RevitAPI.dll</HintPath>
 		</Reference>
 		<Reference Include="RevitAPIIFC, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIIFC.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\RevitAPIIFC.dll</HintPath>
 		</Reference>
 		<Reference Include="System.Web.Extensions" />
 	</ItemGroup>

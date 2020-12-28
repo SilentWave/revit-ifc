@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<Import Project="$(SolutionDir)Revit2021.props" />
 	<PropertyGroup>
 		<Title>Autodesk.IFC.Export.UI</Title>
 		<Description>IFC Exporter for Revit Project</Description>
@@ -18,19 +19,19 @@
 	<ItemGroup>
 		<Reference Include="Autodesk.UI.Windows, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\Autodesk.UI.Windows.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\Autodesk.UI.Windows.dll</HintPath>
 		</Reference>
 		<Reference Include="RevitAPI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\RevitAPI.dll</HintPath>
 		</Reference>
 		<Reference Include="RevitAPIIFC, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIIFC.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\RevitAPIIFC.dll</HintPath>
 		</Reference>
 		<Reference Include="RevitAPIUI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPIUI.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\RevitAPIUI.dll</HintPath>
 		</Reference>
 		<Reference Include="System.Web" />
 		<Reference Include="System.Web.Extensions" />
@@ -38,7 +39,7 @@
 		<Reference Include="System.Windows.Forms" />
 		<Reference Include="UserInterfaceUtility, Version=21.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
-			<HintPath>C:\Program Files\Autodesk\Revit 2021\UserInterfaceUtility.dll</HintPath>
+			<HintPath>$(Revit2021InstallDir)\UserInterfaceUtility.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
