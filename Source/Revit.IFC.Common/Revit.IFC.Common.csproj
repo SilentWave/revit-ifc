@@ -18,10 +18,13 @@
 		<Reference Include="RevitAPI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(Revit2021InstallDir)\RevitAPI.dll</HintPath>
+			<Private>false</Private>
+			<EmbedInteropTypes>false</EmbedInteropTypes>
 		</Reference>
 		<Reference Include="RevitAPIIFC, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(Revit2021InstallDir)\RevitAPIIFC.dll</HintPath>
+			<Private>false</Private>
 		</Reference>
 		<Reference Include="System.Web.Extensions" />
 	</ItemGroup>

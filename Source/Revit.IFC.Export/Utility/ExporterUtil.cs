@@ -1821,8 +1821,13 @@ namespace Revit.IFC.Export.Utility
       /// <param name="description">The description.</param>
       /// <param name="relatedObjects">The related objects, required to be only 1 for IFC4.</param>
       /// <param name="relatingPropertyDefinition">The property definition to relate to the IFC object entity/entities.</param>
-      public static void CreateRelDefinesByProperties(IFCFile file, string guid, IFCAnyHandle ownerHistory,
-          string name, string description, ISet<IFCAnyHandle> relatedObjects, IFCAnyHandle relatingPropertyDefinition)
+      public static void CreateRelDefinesByProperties(IFCFile file,
+                                                      string guid,
+                                                      IFCAnyHandle ownerHistory,
+                                                      string name,
+                                                      string description,
+                                                      ISet<IFCAnyHandle> relatedObjects,
+                                                      IFCAnyHandle relatingPropertyDefinition)
       {
          if (relatedObjects == null)
             return;

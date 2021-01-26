@@ -85,6 +85,9 @@ namespace Revit.IFC.Export.Utility
       /// </summary>
       private void CollectMaterialLayerSet()
       {
+         IFCFile file = m_ExporterIFC.GetFile();
+         Document document = ExporterCacheManager.Document;
+
          ElementId typeElemId = m_Element.GetTypeId();
          MaterialIds = new List<Tuple<ElementId, string, double>>();
          IFCAnyHandle materialLayerSet = ExporterCacheManager.MaterialSetCache.FindLayerSet(typeElemId);
@@ -239,6 +242,8 @@ namespace Revit.IFC.Export.Utility
             double thickestLayer = 0.0;
             for (int ii = 0; ii < MaterialIds.Count; ++ii)
             {
+               var rvtMaterialId = MaterialIds[ii].Item1;
+               var rvtMaterial = document.GetElement(rvtMaterialId) as Material;
                // Require positive width for IFC2x3 and before, and non-negative width for IFC4.
                if (widths[ii] < -MathUtil.Eps())
                   continue;
@@ -259,6 +264,29 @@ namespace Revit.IFC.Export.Utility
 
                widthIndices.Add(ii);
                materialHnds.Add(materialHnd);
+
+               // Create material props if any
+               var rvtThermalPropertySet = document.GetElement(rvtMaterial.ThermalAssetId) as PropertySetElement;
+               var ifcProps = new List<IFCAnyHandle>();
+               foreach (var rvtParam in rvtThermalPropertySet.Parameters.OfType<Parameter>())
+               {
+                  IFCData ifcParamVal;
+                  if (rvtParam.Definition.UnitType == UnitType.UT_HVAC_ThermalConductivity)
+                     ifcParamVal = IFCDataUtil.CreateAsThermalTransmittanceMeasure(rvtParam.AsDouble());
+
+                  // LIM.lab IFCDataUtil.CreateAsThermalTransmittanceMeasure(UnitUtils.ConvertFromInternalUnits(rvtParam.AsDouble(), rvtParam.DisplayUnitType));
+                  else ifcParamVal = IFCDataUtil.CreateAsText(rvtParam.AsValueString());
+
+                  var ifcProp = IFCInstanceExporter.CreatePropertySingleValue(file, rvtParam.Definition.Name, null, ifcParamVal, null);
+                  ifcProps.Add(ifcProp);
+               }
+
+               var propSet = IFCInstanceExporter.CreateIfcMaterialProperties(
+                  file,
+                  "Thermal props",
+                  "The property set regarding thermal properties",
+                  materialHnd,
+                  ifcProps.ToHashSet());
 
                if ((m_ProductWrapper != null) && (functions[ii] == MaterialFunctionAssignment.Finish1 || functions[ii] == MaterialFunctionAssignment.Finish2))
                {
@@ -286,9 +314,6 @@ namespace Revit.IFC.Export.Utility
                   return;
                }
             }
-
-            IFCFile file = m_ExporterIFC.GetFile();
-            Document document = ExporterCacheManager.Document;
 
             IList<IFCAnyHandle> layers = new List<IFCAnyHandle>(numLayersToCreate);
             IList<Tuple<string,IFCAnyHandle>> layerWidthQuantities = new List<Tuple<string,IFCAnyHandle>>();
